@@ -1,4 +1,4 @@
-Here is My Solution to the forum assignment\
+Here is My Solution to the forum assignment
 
 Leonardo Richie
 
