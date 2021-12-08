@@ -1,10 +1,12 @@
 from ShoppinglistLR import Shoppinglist
 
 
-def createList(counts):
+def createList():
     li = []
+    counts = int(input("How many items will you order today? "))
     while counts <= 0:  # inputing count above 0
-        princounts = int(input("How many items will you order today? "))
+        print("Number of items must be at least 1.")
+        counts = int(input("How many items will you order today? "))
         b1 = Shoppinglist("t", 0, 0, 0)
     for k in range(1, counts + 1):  # inputing names & amount
         print("item #{}".format(k))
@@ -17,7 +19,9 @@ def createList(counts):
         priceord = 0
         li.append(Shoppinglist(name, amount, price, priceord))  # putting into a list
         print()
-    return(li)
+    listing = [counts]
+    listing.append(li)
+    return(listing)
 
 
 def printList(list):
@@ -34,13 +38,12 @@ def calculateTotal(counts, list):
         y = x.getPriceOrderedLR()
         z = z + y
 
-    print("Total cost: {:.2f}".format(z))
+    print("Total cost: ${:.2f}".format(z))
 
-def main():
-    counts = int(input("How many items will you order today? "))
-    x = createList(counts)
-    y = printList(x)
-    z = calculateTotal(counts, x)
+def main():#main function
+    x = createList()
+    y = printList(x[1])
+    z = calculateTotal(x[0], x[1])
 
 
 main() #Run the function
